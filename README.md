@@ -1,0 +1,1 @@
+This program simulate a Tetris game. It's from a python course that I am doing and will be updated periodically for each class
