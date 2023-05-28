@@ -1,5 +1,7 @@
 import pygame as pyg
 
+import pygame as pyg
+
 
 class Tetrominos():
     def _tetromino(self):
@@ -19,16 +21,14 @@ class Tetrominos():
 
     def _movimento(self):
         self.ModoTela.blit(self.Tetromino, (220,self.y) , self.bloco_rect)
-        print(self.y)
         if self.y != 670:
             self.y += 1
             if self.y == 670:
-                print("Entrou")
                 self.ModoTela.blit(self.Tetromino, (220,self.y) , self.bloco_rect)
                 self._colisao()
         
 
-
     def _colisao(self):
-        self.y = 0
-        self.ModoTela.blit(self.Tetromino, (220,self.y) , self.bloco_rect)
+        if self.y == 670:
+            self.y2 = 0
+            self.ModoTela.blit(self.Tetromino, (220,self.y2) , self.bloco_rect)

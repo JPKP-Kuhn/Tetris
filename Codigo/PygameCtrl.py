@@ -23,6 +23,7 @@ class PygameCtrl(PygameBasics, Tetrominos):
                     exit()
             
             self._movimento()
+            self._colisao()
             pyg.display.flip()
             self.clock.tick(100)
             pyg.display.update()
