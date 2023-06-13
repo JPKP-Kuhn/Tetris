@@ -15,19 +15,17 @@ class MemoTetris(SurfScreen, SurfMalha, SurfDados, pygame_basics, Tetromino):
 			
 			
 
-		
-	
 	def _pygame_loop(self): 
 		while True: 
 			for event in pyg.event.get():
 				if event.type ==pyl.QUIT:
 					pyg.quit(); sys.exit(1)
-				
-				if event.type==pyl.KEYDOWN: 
-					if event.key==pyl.K_ESCAPE:
-						pyg.quit(), 
-						sys.exit()
-
+				elif event.type == pyg.KEYDOWN and event.key == pyg.K_RIGHT:
+					pass
+				elif event.type == pyg.KEYDOWN and event.key == pyg.K_LEFT:
+					pass
+				elif event.type == pyg.KEYDOWN and event.key == pyg.K_SPACE:
+					pass
 			self.ControleTempo()					
 			self.Screen.fill((0,0,50))
 			self.SurfScreen_prep()
