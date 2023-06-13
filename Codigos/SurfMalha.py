@@ -5,18 +5,23 @@ import numpy as np
 class SurfMalha():
 	#Dados estaticos
 	def SurfMalhaMatriz(self):
-		linhas= 20
-		colunas = 10
-		self.MalhaMatriz = np.zeros(linhas*colunas)
-		np.reshape(self.MalhaMatriz, (linhas,colunas))
-		print(self.MalhaMatriz)		
+		colunas = 12
+		linhas= 22
+		self.MalhaMatriz = np.zeros((linhas, colunas))
+		for i in range(12):
+			self.MalhaMatriz[0][i] = 1
+			self.MalhaMatriz[21][i] = 1
+			for j in range(22):
+				self.MalhaMatriz[j][0] = 1
+				self.MalhaMatriz[j][11] = 1
+		print(self.MalhaMatriz)
 		self.BIF = '../Imagens/malha_quadriculada.png'
 		
 		
 
 				
 	#Dados Dinamicos
-	def SurfMalha(self):		
+	def SurfMalha(self):	
 		MalhaDim = [self.ScreenDim[0]/2, self.ScreenDim[1]*0.9]
 		borda = self.ScreenDim[1]*0.05 #Borda tirada do eixo y
 		self.Malha = pyg.Surface(MalhaDim)
@@ -31,8 +36,13 @@ class SurfMalha():
 		self._Superficies_Tetrominos()
 		#Blit de teste dos tetrominos. 
 		self.ControleTempo()
-				
-		self.Malha.blit(self.SupTetro[(self.TempoTotalSeg//7)%7][self.TempoTotalSeg%7-3], (4*self.Trama[0], 4*self.Trama[1]) )
+		
+		#Blit de cada tetromino
+		for i in range(7):
+			self.Malha.blit(self.SupTetro[0][0], (self.Trama[0], self.TempoTotalSeg*self.Trama[1]))
+			if self.Trama[1] == 1:
+				pass
+			#self.Malha.blit(self.SupTetro[(self.TempoTotalSeg//7)%7][self.TempoTotalSeg%7-3], (4*self.Trama[0], 4*self.Trama[1]))
 
 		self.MalhaPos=(self.ScreenDim[0]/2-borda,borda)
 		
