@@ -18,15 +18,15 @@ class SurfTetrominos():
 		#Carrega as imagens, salva nas superficies. 
 		self.Trama = (self.Malha.get_width()/10, self.Malha.get_height()/20)
 			#Tamanho da trama (quadrado que guarda o bloco individual).		
-		self.BlocosCores = pyg.transform.scale(self.BlocosCores, (self.Trama[0]*7, self.Trama[1]) )
+		self.BlocosCores = pyg.transform.scale(self.BlocosCores, (self.Trama[0]*7, self.Trama[1]))
 			#self.BlocosCores definido em _pygame_basics()
 		#Criação das superficies dos blocos
 		
-		for i in range(self.Ntetros ):	#São 8 tetrominos usados, no clássico sao 7. 
+		for i in range(self.Ntetros):	#São 8 tetrominos usados, no clássico sao 7. 
 			self.SurfBlocos[i] =pyg.Surface((self.Trama[0], self.Trama[1])) 			
 			RetBloco = pyg.Rect((i*self.Trama[0],0),self.Trama)			
 			self.SurfBlocos[i].blit(self.BlocosCores, (0,0),RetBloco)	#Faz o blit do retangulo. 		
-
+			
 
 
 	'''

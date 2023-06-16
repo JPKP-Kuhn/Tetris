@@ -23,7 +23,7 @@ class pygame_basics:
 		
 		#Carregamento de imagens fixas
 		BlocosCoresPath = "../Imagens/blocos.png"
-		self.BlocosCores = pyg.image.load(BlocosCoresPath).convert()	
+		self.BlocosCores = pyg.image.load(BlocosCoresPath).convert_alpha()	
 			#Uso em _Superficie_Blocos()
 		
 		#Controle de movimento dos tetrominos

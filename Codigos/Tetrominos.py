@@ -57,7 +57,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		self._Tetros.append(Tetro)	
 
 
-	#Tetromino 7: L
+	#Tetromino 7 L vermelho:
 	def Tetro7(self):
 		Tetro = {}	
 		#Posicao 0
@@ -90,7 +90,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		Tetro[-1]=Tetro[3]=Tetro1
 		self._Tetros.append(Tetro)		
 			
-	#Tetromino 6: J
+	#Tetromino 6 L verde:
 	def Tetro6(self):
 		Tetro = {}			
 		#Posicao 0
@@ -98,7 +98,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		Tetro1[0][2]=1
 		Tetro1[1][2]=1
 		Tetro1[2][2]=1
-		Tetro1[3][1]=1
+		Tetro1[2][1]=1
 		Tetro[0]=Tetro1
 		#Posicao 90 e -270
 		Tetro1 = np.copy(self.BaseTetro)
@@ -124,7 +124,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		self._Tetros.append(Tetro)	
 
 		
-	#Tetromino 5:
+	#Tetromino 5 Z:
 	def Tetro5(self):
 		Tetro = {}	
 		#Posicao 0,180,-180		
@@ -144,7 +144,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		#Inserção dos tetrominos		
 		self._Tetros.append(Tetro)
 
-	#Tetromino 4:
+	#Tetromino 4 Quadrado:
 	def Tetro4(self):
 		Tetro = {}		
 		Tetro1 = np.copy(self.BaseTetro)		
@@ -156,7 +156,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 			Tetro[i] = Tetro1
 		self._Tetros.append(Tetro)	
 	
-	#Tetromino 3:		
+	#Tetromino 3 S:		
 	def Tetro3(self):
 		Tetro = {}		
 		#Posicao 0:
@@ -183,7 +183,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		#Inserção dos tetrominos		
 		self._Tetros.append(Tetro)
 		
-	#Tetromino 1:	
+	#Tetromino 1 I:	
 	def Tetro1(self):
 		Tetro = {}		
 		Tetro1 = np.copy(self.BaseTetro)
@@ -196,7 +196,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		Tetro[-1] =Tetro[1] = Tetro[3]=Tetro[-3]=Tetro2		
 		self._Tetros.append(Tetro)			
 		
-	#Tetromino 2:		
+	#Tetromino 2 T:		
 	def Tetro2(self):
 		Tetro = {}		
 		#Posicao 0:

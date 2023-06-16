@@ -8,8 +8,8 @@ class SurfMalha():
 	def SurfMalhaMatriz(self):
 		linhas= 20
 		colunas = 10
-		self.MalhaMatriz = np.zeros(linhas*colunas)
-		self.MalhaMatriz =self.MalhaMatriz.reshape(20,10)		
+		self.MalhaMatriz = np.zeros((linhas, colunas))
+		#self.MalhaMatriz =self.MalhaMatriz.reshape(20,10)		
 		print(self.MalhaMatriz)		
 		self.BIF = '../Imagens/malha_quadriculada.png'
 		
