@@ -2,49 +2,94 @@
 import pygame as pyg
 import pygame.locals as pyl
 import numpy as np
+
 class SurfMalha():
 	#Dados estaticos
 	def SurfMalhaMatriz(self):
-		colunas = 12
-		linhas= 22
-		self.MalhaMatriz = np.zeros((linhas, colunas))
-		for i in range(12):
-			self.MalhaMatriz[0][i] = 1
-			self.MalhaMatriz[21][i] = 1
-			for j in range(22):
-				self.MalhaMatriz[j][0] = 1
-				self.MalhaMatriz[j][11] = 1
-		print(self.MalhaMatriz)
+		linhas= 20
+		colunas = 10
+		self.MalhaMatriz = np.zeros(linhas*colunas)
+		self.MalhaMatriz =self.MalhaMatriz.reshape(20,10)		
+		print(self.MalhaMatriz)		
 		self.BIF = '../Imagens/malha_quadriculada.png'
 		
+
+
+	#Se os blocos estão corretos deverá aparecer em diagonal os retangulos. 		
+	def _Teste_Blit_Blocos(self):
+		for i in range(self.Ntetros):
+			self.Malha.blit(self.SurfBlocos[i],(i*self.Trama[0],i*self.Trama[1]) )
 		
 
+
+	'''
+    if event.type == pygame.KEYDOWN:
+      if event.key == K_LEFT:
+        keys_pressed_list.append("left")
+      if event.key == K_RIGHT:
+        keys_pressed_list.append("right")
+      if event.key == K_UP:
+        keys_pressed_list.append("up")
+      if event.key == K_DOWN:
+        keys_pressed_list.append("down")
+      if event.key == K_a:
+        keys_pressed_list.append("a")
+      if  event.key == K_d:
+        keys_pressed_list.append("b")
+      if event.key == K_w:
+        keys_pressed_list.append("w")
+      if event.key == K_s:
+        keys_pressed_list.append("s")
+      if event.key == K_SPACE:
+        keys_pressed_list.append("space")
+      if event.key == K_q:
+        keys_pressed_list.append("q")
+      if event.key == K_e:
+        keys_pressed_list.append("e")
+    if event.type == pygame.MOUSEBUTTONDOWN:
+      keys_pressed_list.append("click")
+	'''
+	
+	def _Teste_blit_Tetrominos(self):
+		self.Malha.blit(self.SupTetro[(self.TetroAtual%7)][self.Rotacao%7-3], (5*self.Trama[0], (self.TempoTotalSeg%20)*self.Trama[1]) )
+
+		
+
+
+	
+	def _Teste_Rotacao_Tetrominos(self):
+		pass			
+		
 				
 	#Dados Dinamicos
-	def SurfMalha(self):	
+	def SurfMalha(self):		
 		MalhaDim = [self.ScreenDim[0]/2, self.ScreenDim[1]*0.9]
-		borda = self.ScreenDim[1]*0.05 #Borda tirada do eixo y
+		borda = self.ScreenDim[1]*0.05 
+			#Borda tirada do eixo y, tem o objetivo de tirar a borda da malha. 
+		self.MalhaPos=(self.ScreenDim[0]/2-borda,borda)
 		self.Malha = pyg.Surface(MalhaDim)
 		self.MalhaBIF = pyg.image.load(self.BIF).convert_alpha()
 		self.MalhaBIF = pyg.transform.scale(self.MalhaBIF, MalhaDim)
 		self.Malha.blit(self.MalhaBIF, (0,0))
-		self._Superficies_Blocos()	#Em cada nova redimensionamento deve-se construir a superficie de cada bloquinho. 
-		#Teste de uso dos retangulos. self.SurfBlocos[] definido em _Retangulos_Blocos(self)	
-		#for i in range(7):
-			#self.Malha.blit(self.SurfBlocos[i],(i*self.Trama[0],i*self.Trama[1]) )
-			
-		self._Superficies_Tetrominos()
-		#Blit de teste dos tetrominos. 
-		self.ControleTempo()
 		
-		#Blit de cada tetromino
-		for i in range(7):
-			self.Malha.blit(self.SupTetro[0][0], (self.Trama[0], self.TempoTotalSeg*self.Trama[1]))
-			if self.Trama[1] == 1:
-				pass
-			#self.Malha.blit(self.SupTetro[(self.TempoTotalSeg//7)%7][self.TempoTotalSeg%7-3], (4*self.Trama[0], 4*self.Trama[1]))
-
-		self.MalhaPos=(self.ScreenDim[0]/2-borda,borda)
+		self._Superficies_Blocos()	
+			#Em cada nova redimensionamento deve-se construir a superficie de cada bloquinho. 				
+		self._Teste_Blit_Blocos()	#Blit de teste dos tetrominos.
+			
+		self._Superficies_Tetrominos()	#Requer os blocos já montados em _Superficies_Blocos(self)		
+		
+		
+		
+		#Cada Tetromino em queda
+		self._Teste_blit_Tetrominos()
+				
+		#Teste de rotacao dos blocos. 
+		
+		
+		
+		
+		
+		
 		
 		
 
