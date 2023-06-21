@@ -1,0 +1,110 @@
+
+Numero de tetrominos:  8
+	Tetro  0 , Numero de rotacoes:  2
+		Rotacao  0
+		0 0 0 0 
+		1 1 1 1 
+		0 0 0 0 
+		0 0 0 0 
+		Rotacao  1
+		0 1 0 0 
+		0 1 0 0 
+		0 1 0 0 
+		0 1 0 0 
+	Tetro  1 , Numero de rotacoes:  4
+		Rotacao  0
+		0 0 0 0 
+		0 0 0 0 
+		0 1 0 0 
+		1 1 1 0 
+		Rotacao  1
+		0 0 0 0 
+		0 1 0 0 
+		1 1 0 0 
+		0 1 0 0 
+		Rotacao  2
+		0 0 0 0 
+		0 0 0 0 
+		1 1 1 0 
+		0 1 0 0 
+		Rotacao  3
+		0 0 0 0 
+		1 0 0 0 
+		1 1 0 0 
+		1 0 0 0 
+	Tetro  2 , Numero de rotacoes:  2
+		Rotacao  0
+		0 1 1 0 
+		1 1 0 0 
+		0 0 0 0 
+		0 0 0 0 
+		Rotacao  1
+		1 0 0 0 
+		1 1 0 0 
+		0 1 0 0 
+		0 0 0 0 
+	Tetro  3 , Numero de rotacoes:  1
+		Rotacao  0
+		0 1 1 0 
+		0 1 1 0 
+		0 0 0 0 
+		0 0 0 0 
+	Tetro  4 , Numero de rotacoes:  2
+		Rotacao  0
+		1 1 0 0 
+		0 1 1 0 
+		0 0 0 0 
+		0 0 0 0 
+		Rotacao  1
+		0 1 0 0 
+		1 1 0 0 
+		1 0 0 0 
+		0 0 0 0 
+	Tetro  5 , Numero de rotacoes:  4
+		Rotacao  0
+		0 0 1 0 
+		0 0 1 0 
+		0 1 1 0 
+		0 0 0 0 
+		Rotacao  1
+		0 1 1 1 
+		0 0 0 1 
+		0 0 0 0 
+		0 0 0 0 
+		Rotacao  2
+		0 1 1 0 
+		0 1 0 0 
+		0 1 0 0 
+		0 0 0 0 
+		Rotacao  3
+		0 1 0 0 
+		0 1 1 1 
+		0 0 0 0 
+		0 0 0 0 
+	Tetro  6 , Numero de rotacoes:  4
+		Rotacao  0
+		0 1 0 0 
+		0 1 0 0 
+		0 1 1 0 
+		0 0 0 0 
+		Rotacao  1
+		0 0 0 1 
+		0 1 1 1 
+		0 0 0 0 
+		0 0 0 0 
+		Rotacao  2
+		0 1 1 0 
+		0 0 1 0 
+		0 0 1 0 
+		0 0 0 0 
+		Rotacao  3
+		0 1 1 1 
+		0 1 0 0 
+		0 0 0 0 
+		0 0 0 0 
+	Tetro  7 , Numero de rotacoes:  1
+		Rotacao  0
+		0 1 0 0 
+		1 0 1 0 
+		0 1 0 0 
+		0 0 0 0 

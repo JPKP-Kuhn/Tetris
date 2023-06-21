@@ -30,17 +30,21 @@ class MemoTetris(SurfScreen, SurfMalha, SurfDados, pygame_basics, Tetromino, Sur
 						self.Rotacao-=1
 					if event.key==pyl.K_DOWN:
 						self.Rotacao+=1
-					if (event.key==(pyl.K_t)or(event.key==pyl.K_w)):
-						self.TetroAtual+=1
-						#print("t foi pressionada")
+					if event.key==pyl.K_LEFT:
+						self.Posicao-=1
+					if event.key==pyl.K_RIGHT:
+						self.Posicao+=1		
+					if event.key==pyl.K_t:	#Somente para testes. A mudança de tetromino
+						self.TetroAtual+=1	#ocorre quando um tetromino pára de descer.
+					if event.key==pyl.K_SPACE:
+						self.Altura+=1
 					if event.key==pyl.K_m:
-						print("Tetromino ", self.TetroAtual%7, " rotacao:", self.Rotacao%7-3)	
-
-			self.ControleTempo()					
+						print("Tetromino ", self.TetroAtual%7, " rotacao:", self.Rotacao%7-3)
+							
 			self.Screen.fill((0,0,50))
-			self.SurfScreen_prep()
-			self.SurfMalha()	#A superficie da malha deve ser criada sempre. 
-			self.SurfDados()			
+			self.SurfScreen()		#SurfScreen.py
+			self.SurfMalha()		#SurfMalha.py 
+			self.SurfDados()		#SurfDados.py 		
 			self.Screen.blit(self.Malha, self.MalhaPos)
 			self.Screen.blit(self.Dados, (10,30))			
 		

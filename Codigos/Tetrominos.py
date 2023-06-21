@@ -3,6 +3,21 @@ import numpy as np
 import pygame as pyg
 import pygame.locals as pyl
 
+
+def _mat_nula_4_4():
+	mat=[None]*4	#Matriz 4x4 de termos nulos
+	for i in range(4):
+		mat[i]=[int]*4 
+		for j in range(4):
+			mat[i][j] = 0
+	return mat		
+
+'''
+Melhor seria criaruma classe para o tetromino em que incluísse a matriz do tetromino e 
+a base, que nada mais é do que a primeira linha nao nula da matriz. 
+Evita que seja toda hora verificado na colisao com a matriz da malha. 
+'''
+
 class Tetromino: #Indica o tetromino e a rotacao que sofre.	
 	'''
 	Os tetrominos são indicados pelo tipo. 
@@ -18,11 +33,10 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 	 
 	 Todos os tetrominos devem começar na parte mais alta. 
 	'''	
-	def Tetros(self): 					
-		#Criação das matrizes dos tetrominos
-		self.BaseTetro = np.zeros((4,4), dtype = np.int_) #Base para os tetrominos
+		
+	
+	def Tetros(self):
 		self._Tetros = []
-		#self._Tetros = [None]*self.Ntetros	#Guarda formato dos tetrominos em forma de matriz		
 		self.Tetro1()				
 		self.Tetro2()
 		self.Tetro3()
@@ -30,205 +44,193 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		self.Tetro5()
 		self.Tetro6()
 		self.Tetro7()
-		self.Tetro8()	
+		#self.Tetro8()				
 		
-		'''
-		for i in range(len(self._Tetros)):	
-			print("Tetromino ", i)		
-			for key, value in self._Tetros[i].items():			
-				print(key, end = ": \n")
-				print(value)				
-			print()
-		'''	
-		
-		#Criação das superfícies dos tetrominos:
-		#Cada tetromino possui tantas superficies quantas matrizes houver.
-
+	#Criação das matrizes dos tetrominos:	
 	#Tetromino 8: Extra
 	def Tetro8(self):
-		Tetro = {}	
-		Tetro1 = np.copy(self.BaseTetro)
+		Tetro = []	
+		Tetro1 = _mat_nula_4_4()
 		Tetro1[0][1]=1
 		Tetro1[1][0]=1
 		Tetro1[1][2]=1
 		Tetro1[2][1]=1
-		for i in range(-3,4):
-			Tetro[i] = Tetro1
-		self._Tetros.append(Tetro)	
+		Tetro.append(Tetro1)		
+		self._Tetros.append(Tetro)
 
-
-	#Tetromino 7 L vermelho:
+	#Tetromino 7: L - 4 rotacoes. 
 	def Tetro7(self):
-		Tetro = {}	
+		Tetro = []	
 		#Posicao 0
-		Tetro1 = np.copy(self.BaseTetro)
+		Tetro1 = _mat_nula_4_4()
+		Tetro1[0][0]=1
+		Tetro1[1][0]=1
+		Tetro1[2][0]=1
+		Tetro1[2][1]=1
+		Tetro.append(Tetro1)
+		#Posicao 1 - Rotacao 
+		Tetro1 = _mat_nula_4_4()
+		Tetro1[1][0]=1
+		Tetro1[1][1]=1
+		Tetro1[1][2]=1
+		Tetro1[0][2]=1
+		Tetro.append(Tetro1)
+		#Posicao 2 - Rotacao
+		Tetro1 = _mat_nula_4_4()
+		Tetro1[0][0]=1
 		Tetro1[0][1]=1
 		Tetro1[1][1]=1
 		Tetro1[2][1]=1
-		Tetro1[2][2]=1
-		Tetro[0]=Tetro1
-		#Posicao 90 e -270
-		Tetro1 = np.copy(self.BaseTetro)
-		Tetro1[1][1]=1
-		Tetro1[1][2]=1
-		Tetro1[1][3]=1
-		Tetro1[0][3]=1
-		Tetro[1]=Tetro[-3]=Tetro1
-		#Posicao 180 e -180
-		Tetro1 = np.copy(self.BaseTetro)
+		Tetro.append(Tetro1)
+		#Posicao 3
+		Tetro1 = _mat_nula_4_4()
+		Tetro1[0][0]=1
 		Tetro1[0][1]=1
 		Tetro1[0][2]=1
-		Tetro1[1][2]=1
-		Tetro1[2][2]=1
-		Tetro[-2]=Tetro[2]=Tetro1
-		#Posicao -90 e 270
-		Tetro1 = np.copy(self.BaseTetro)
-		Tetro1[0][1]=1
-		Tetro1[0][2]=1
-		Tetro1[0][3]=1
-		Tetro1[1][1]=1
-		Tetro[-1]=Tetro[3]=Tetro1
+		Tetro1[1][0]=1
+		Tetro.append(Tetro1)
 		self._Tetros.append(Tetro)		
+	
 			
-	#Tetromino 6 L verde:
+	#Tetromino 6: J
 	def Tetro6(self):
-		Tetro = {}			
+		Tetro = []			
 		#Posicao 0
-		Tetro1 = np.copy(self.BaseTetro)
-		Tetro1[0][2]=1
-		Tetro1[1][2]=1
-		Tetro1[2][2]=1
-		Tetro1[2][1]=1
-		Tetro[0]=Tetro1
-		#Posicao 90 e -270
-		Tetro1 = np.copy(self.BaseTetro)
-		Tetro1[0][1]=1
-		Tetro1[0][2]=1
-		Tetro1[0][3]=1
-		Tetro1[1][3]=1
-		Tetro[1]=Tetro[-3]=Tetro1
-		#Posicao 180 e -180
-		Tetro1 = np.copy(self.BaseTetro)
-		Tetro1[0][1]=1
-		Tetro1[0][2]=1
-		Tetro1[1][1]=1
-		Tetro1[2][1]=1
-		Tetro[-2]=Tetro[2]=Tetro1		
-		#Posicao -90 e 270
-		Tetro1 = np.copy(self.BaseTetro)
+		Tetro1 = _mat_nula_4_4()
 		Tetro1[0][1]=1
 		Tetro1[1][1]=1
+		Tetro1[2][1]=1
+		Tetro1[2][0]=1
+		Tetro.append(Tetro1)
+		#Posicao 1 
+		Tetro1 = _mat_nula_4_4()
+		Tetro1[0][0]=1
+		Tetro1[0][1]=1
+		Tetro1[0][2]=1
 		Tetro1[1][2]=1
-		Tetro1[1][3]=1
-		Tetro[-1]=Tetro[3]=Tetro1
+		Tetro.append(Tetro1)
+		#Posicao 2
+		Tetro1 = _mat_nula_4_4()
+		Tetro1[0][0]=1
+		Tetro1[0][1]=1
+		Tetro1[1][0]=1
+		Tetro1[2][0]=1
+		Tetro.append(Tetro1)
+		#Posicao 3
+		Tetro1 = _mat_nula_4_4()
+		Tetro1[0][0]=1
+		Tetro1[1][0]=1
+		Tetro1[1][1]=1
+		Tetro1[1][2]=1
+		Tetro.append(Tetro1)
 		self._Tetros.append(Tetro)	
+		
 
 		
-	#Tetromino 5 Z:
+	#Tetromino 5: 2 rotações
 	def Tetro5(self):
-		Tetro = {}	
-		#Posicao 0,180,-180		
-		Tetro1 = np.copy(self.BaseTetro)		
+		Tetro = []	
+		#Posicao 0	
+		Tetro1 = _mat_nula_4_4()		
 		Tetro1[0][0] = 1
 		Tetro1[0][1] = 1
 		Tetro1[1][1] =1
 		Tetro1[1][2] =1
-		Tetro[0]=Tetro[2]=Tetro[-2]=Tetro1
-		#Posicao (90 e -270) e (-90 e 270):
-		Tetro1 = np.copy(self.BaseTetro)		
+		Tetro.append(Tetro1)
+		#Posicao 1
+		Tetro1 = _mat_nula_4_4()		
 		Tetro1[0][1] = 1
 		Tetro1[1][1] = 1
 		Tetro1[1][0] = 1
 		Tetro1[2][0] =1
-		Tetro[1]=Tetro[-3]=Tetro[3]=Tetro[-1]=Tetro1	
-		#Inserção dos tetrominos		
+		Tetro.append(Tetro1)		
 		self._Tetros.append(Tetro)
-
-	#Tetromino 4 Quadrado:
+		
+	
+	
+	#Tetromino 4: #Quadrado
 	def Tetro4(self):
-		Tetro = {}		
-		Tetro1 = np.copy(self.BaseTetro)		
+		Tetro = []		
+		Tetro1 = _mat_nula_4_4()		
+		Tetro1[0][0] = 1
 		Tetro1[0][1] = 1
-		Tetro1[0][2] = 1
+		Tetro1[1][0] =1
 		Tetro1[1][1] =1
-		Tetro1[1][2] =1
-		for i in range(-3,4):
-			Tetro[i] = Tetro1
+		Tetro.append(Tetro1)
 		self._Tetros.append(Tetro)	
 	
-	#Tetromino 3 S:		
+		
+	
+	#Tetromino 3:		
 	def Tetro3(self):
-		Tetro = {}		
+		Tetro = []		
 		#Posicao 0:
-		Tetro1 = np.copy(self.BaseTetro)		
+		Tetro1 = _mat_nula_4_4()		
 		Tetro1[0][1] = 1
 		Tetro1[0][2] = 1
 		Tetro1[1][0] =1
 		Tetro1[1][1] =1
-		Tetro[0]=Tetro1
-		#Posicao (90 e -270) e (-90 e 270):
-		Tetro1 = np.copy(self.BaseTetro)		
+		Tetro.append(Tetro1)
+		#Posicao 1
+		Tetro1 = _mat_nula_4_4()		
 		Tetro1[0][0] = 1
 		Tetro1[1][0] = 1
 		Tetro1[1][1] = 1
 		Tetro1[2][1] =1
-		Tetro[1]=Tetro[-3]=Tetro[3]=Tetro[-1]=Tetro1	
-		#Posicao 180 e -180:
-		Tetro1 = np.copy(self.BaseTetro)		
-		Tetro1[1][0] = 1
-		Tetro1[1][1] = 1
-		Tetro1[0][1] = 1
-		Tetro1[0][2] =1
-		Tetro[2]=Tetro[-2]=Tetro1
-		#Inserção dos tetrominos		
+		Tetro.append(Tetro1)	
 		self._Tetros.append(Tetro)
 		
-	#Tetromino 1 I:	
-	def Tetro1(self):
-		Tetro = {}		
-		Tetro1 = np.copy(self.BaseTetro)
-		for i in range(4): 
-			Tetro1[3][i] = 1
-		Tetro[0] = Tetro[2]=Tetro[-2]=Tetro1
-		Tetro2 = np.copy(self.BaseTetro)
-		for i in range(4): 
-			Tetro2[i][0] = 1
-		Tetro[-1] =Tetro[1] = Tetro[3]=Tetro[-3]=Tetro2		
-		self._Tetros.append(Tetro)			
 		
-	#Tetromino 2 T:		
+	
+		
+	#Tetromino 2:		
 	def Tetro2(self):
-		Tetro = {}		
+		Tetro = []		
 		#Posicao 0:
-		Tetro1 = np.copy(self.BaseTetro)		
-		Tetro1[2][1] = 1
-		Tetro1[3][0] = 1
-		Tetro1[3][1] =1
-		Tetro1[3][2] =1
-		Tetro[0]=Tetro1
-		#Posicao 90 e -270:
-		Tetro1 = np.copy(self.BaseTetro)		
-		Tetro1[2][0] = 1
+		Tetro1 = _mat_nula_4_4()		
+		Tetro1[0][1] = 1#11
 		Tetro1[1][1] = 1
+		Tetro1[2][1] =1
+		Tetro1[1][2] =1
+		Tetro.append(Tetro1)
+		#Posicao 1
+		Tetro1 = _mat_nula_4_4()		
 		Tetro1[2][1] = 1
-		Tetro1[3][1] =1
-		Tetro[1]=Tetro[-3]=Tetro1
-		#Posicao 180 e -180:
-		Tetro1 = np.copy(self.BaseTetro)		
-		Tetro1[2][0] = 1
-		Tetro1[2][1] = 1
-		Tetro1[2][2] = 1
-		Tetro1[3][1] =1
-		Tetro[2]=Tetro[-2]=Tetro1
-		#Posicao 270 e -90:
-		Tetro1 = np.copy(self.BaseTetro)		
+		Tetro1[1][2] = 1
 		Tetro1[1][0] = 1
-		Tetro1[2][0] = 1
-		Tetro1[2][1] = 1
-		Tetro1[3][0] =1
-		Tetro[3]=Tetro[-1]=Tetro1	
+		Tetro1[1][1] =1
+		Tetro.append(Tetro1)
+		#Posicao 2
+		Tetro1 = _mat_nula_4_4()		
+		Tetro1[1][1] = 1  #31
+		Tetro1[0][1] = 1
+		Tetro1[1][0] =1
+		Tetro1[2][1] =1
+		Tetro.append(Tetro1)
+		#Posicao 3
+		Tetro1 = _mat_nula_4_4()		
+		Tetro1[1][0] = 1
+		Tetro1[1][1] = 1
+		Tetro1[1][2] = 1
+		Tetro1[0][1] =1
+		Tetro.append(Tetro1)	
 		#Inserção dos tetrominos		
 		self._Tetros.append(Tetro)
+		
+	#Tetromino 1. Formato I. Possui apenas 2 rotações. 		
+	def Tetro1(self):
+		Tetro = []				
+		Tetro1 = _mat_nula_4_4()
+		for i in range(4): 
+			Tetro1[1][i] = 1
+		Tetro.append(Tetro1)		
+		Tetro2 = _mat_nula_4_4()
+		for i in range(4): 
+			Tetro2[i][1] = 1
+		Tetro.append(Tetro2)			
+		self._Tetros.append(Tetro)	
+		
+
 
 
 if __name__=="__main__": 
