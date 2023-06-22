@@ -98,10 +98,10 @@ class SurfMalha():
 						ExtEsq=j		
 		if self.Posicao<=ExtEsq:	#Posicao maxima a esquerda é -ExtEsq
 			self.Posicao=ExtEsq
-			#print("Houve Colisao a esquerda")			
+			print("Houve Colisao a esquerda")			
 		if self.Posicao>=9-ExtDir:	#Posicao maxima à direita é 10	
 			self.Posicao=9-ExtDir	
-			#print("Houve Colisao a direita")
+			print("Houve Colisao a direita")
 			
 	def DetectaColisaoMatriz(self):
 		self.TempMat = self._Tetros[self.tetro_em_uso][self.Rotacao%len(self._Tetros[self.tetro_em_uso])]

@@ -188,10 +188,10 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		Tetro = []		
 		#Posicao 0:
 		Tetro1 = _mat_nula_4_4()		
-		Tetro1[0][1] = 1#11
-		Tetro1[1][1] = 1
-		Tetro1[2][1] =1
-		Tetro1[1][2] =1
+		Tetro1[0][0] = 1#11
+		Tetro1[1][0] = 1
+		Tetro1[2][0] =1
+		Tetro1[1][1] =1
 		Tetro.append(Tetro1)
 		#Posicao 1
 		Tetro1 = _mat_nula_4_4()		
@@ -217,16 +217,16 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		#Inserção dos tetrominos		
 		self._Tetros.append(Tetro)
 		
-	#Tetromino 1. Formato I. Possui apenas 2 rotações. 		
+	#Tetromino 0. Formato I. Possui apenas 2 rotações. 		
 	def Tetro1(self):
 		Tetro = []				
 		Tetro1 = _mat_nula_4_4()
 		for i in range(4): 
-			Tetro1[1][i] = 1
+			Tetro1[0][i] = 1
 		Tetro.append(Tetro1)		
 		Tetro2 = _mat_nula_4_4()
 		for i in range(4): 
-			Tetro2[i][1] = 1
+			Tetro2[i][0] = 1
 		Tetro.append(Tetro2)			
 		self._Tetros.append(Tetro)	
 		
