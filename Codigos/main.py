@@ -46,7 +46,7 @@ class MemoTetris(SurfScreen, SurfMalha, SurfDados, pygame_basics, Tetromino, Sur
 			self.SurfMalha()		#SurfMalha.py 
 			self.SurfDados()		#SurfDados.py 		
 			self.Screen.blit(self.Malha, self.MalhaPos)
-			self.Screen.blit(self.Dados, (10,30))			
+			self.Screen.blit(self.Dados, (10,30))
 		
 			pyg.display.update()	
 

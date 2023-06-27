@@ -47,7 +47,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		#self.Tetro8()				
 		
 	#Criação das matrizes dos tetrominos:	
-	#Tetromino 8: Extra
+	#Tetromino 7: Extra
 	def Tetro8(self):
 		Tetro = []	
 		Tetro1 = _mat_nula_4_4()
@@ -58,7 +58,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		Tetro.append(Tetro1)		
 		self._Tetros.append(Tetro)
 
-	#Tetromino 7: L - 4 rotacoes. 
+	#Tetromino 6: L - 4 rotacoes. 
 	def Tetro7(self):
 		Tetro = []	
 		#Posicao 0
@@ -92,7 +92,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		self._Tetros.append(Tetro)		
 	
 			
-	#Tetromino 6: J
+	#Tetromino 5: J
 	def Tetro6(self):
 		Tetro = []			
 		#Posicao 0
@@ -127,7 +127,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		
 
 		
-	#Tetromino 5: 2 rotações
+	#Tetromino 4: 2 rotações
 	def Tetro5(self):
 		Tetro = []	
 		#Posicao 0	
@@ -148,7 +148,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		
 	
 	
-	#Tetromino 4: #Quadrado
+	#Tetromino 3: #Quadrado
 	def Tetro4(self):
 		Tetro = []		
 		Tetro1 = _mat_nula_4_4()		
@@ -161,7 +161,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 	
 		
 	
-	#Tetromino 3:		
+	#Tetromino 2:		
 	def Tetro3(self):
 		Tetro = []		
 		#Posicao 0:
@@ -183,7 +183,7 @@ class Tetromino: #Indica o tetromino e a rotacao que sofre.
 		
 	
 		
-	#Tetromino 2:		
+	#Tetromino 1:		
 	def Tetro2(self):
 		Tetro = []		
 		#Posicao 0:

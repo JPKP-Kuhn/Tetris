@@ -65,7 +65,7 @@ class pygame_basics:
 		self.time_check = 0	#Verifica se passou 60 seg;
 		self.TempoTotalSeg = 0
 		self.TempoTotalMin = 0
-		self.tick = self.clock.tick()
+		self.tick = self.clock.tick() #milissegundos
 
 			
 		

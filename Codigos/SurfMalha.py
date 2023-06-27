@@ -157,18 +157,20 @@ class SurfMalha():
 			if self.DetectaColisaoRotacao(): 
 				flagRotacao = 2			
 			self.AuxRotacao=self.Rotacao	
-			#self.AuxPosicao = self.Posicao-1	#Força a verificacao da posicao. 		
+			self.AuxPosicao = self.Posicao-1	#Força a verificacao da posicao. 		
+		if(self.MalhaMatriz[(self.AuxAltura+self.base+1)][7] != 0):
+			print('contato')
 		return flagColisao #Nao houve colisao. 
 		
 
 
 	#Rotinas de teste. 
 	#Se os blocos estão corretos deverá aparecer em diagonal os retangulos. 		
+	'''
 	def _Teste_Blit_Blocos(self):
 		for i in range(self.Nblocos):
 			self.Malha.blit(self.SurfBlocos[i],(i*self.Trama[0],i*self.Trama[1]) )
 	
-		
 	def _Teste_blit_Tetrominos(self):
 		n = len(self.SurfTetro)	#Quantidade de tetrominos em uso.
 								#Definido em _Superficies_Tetrominos(), SurfTetrominos.py
@@ -176,5 +178,5 @@ class SurfMalha():
 								#self.TetroAtual definido em _pygame_basics()
 		#Verifica choque com a parede.		
 		self.Malha.blit(self.SurfTetro[tetro_em_uso][self.Rotacao%len(self._Tetros[tetro_em_uso])], (self.Posicao*self.Trama[0], 0*self.Trama[1])) 
-		
+	'''
 

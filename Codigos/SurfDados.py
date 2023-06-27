@@ -6,7 +6,7 @@ class SurfDados():
 	def ControleTempo(self):
 		self.tick =  self.clock.tick()
 		self.time_check += self.tick		
-		self.TempoTotalSeg = int(self.time_check/1000.)		
+		self.TempoTotalSeg = int(self.time_check/1000.)	
 		if (self.time_check>=(60*1000)): #1 minuto passado
 			self.time_check = 0
 			self.TempoTotalSeg = 0
