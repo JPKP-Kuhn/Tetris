@@ -8,7 +8,7 @@ class SurfDados():
 		self.time_check += self.tick	
 		self.ticks += self.tick
 		self.TempoTotalSeg = int(self.time_check/1000.)
-		if self.ticks >= 1000:
+		if self.ticks >= 1000: #1 segundo passado
 			self.Altura += 1
 			self.ticks = 0
 		if (self.time_check>=(60*1000)): #1 minuto passado

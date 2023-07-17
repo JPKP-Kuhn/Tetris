@@ -66,7 +66,7 @@ class SurfMalha():
 					if self.TempMat[i59][j60]==1: 
 						self.MalhaMatriz[i59+self.Altura][j60+self.Posicao]= (self.tetro_em_uso+1) 
 						#Tinha iniciado os tetro em uso com zero. Aqui perde-se o sentido. 
-						
+			self.Altura = 0	#Posiciona tetramino de volta ao topo da matriz.
 			
 			self.ImprimeMatrizMalha()
 		else:  	
@@ -76,13 +76,7 @@ class SurfMalha():
 			for j in range(len(self.MalhaMatriz[i])):
 				if(self.MalhaMatriz[i][j]!=0):
 					self.Malha.blit(self.SurfBlocos[self.MalhaMatriz[i][j]],(j*self.Trama[0],i*self.Trama[1]) )
-					#print(self.MalhaMatriz[i][j], i, j)
-					
-					
-			
-#		for i in range(self.Nblocos):
-#			self.Malha.blit(self.SurfBlocos[i],(i*self.Trama[0],i*self.Trama[1]) )
-
+					#print(self.MalhaMatriz[i][j], i, j
 
 
 	def DetectaColisaoBordaLateral(self): 
@@ -158,27 +152,11 @@ class SurfMalha():
 			if self.DetectaColisaoRotacao(): 
 				flagRotacao = 2			
 			self.AuxRotacao=self.Rotacao	
-			self.AuxPosicao = self.Posicao-1	#Força a verificacao da posicao. 		
-		if(self.MalhaMatriz[(self.AuxAltura+self.base+1)][7] != 0):
+			self.AuxPosicao = self.Posicao-1	#Força a verificacao da posicao.	
+		if(self.MalhaMatriz[(self.AuxAltura+self.base+1)][self.Posicao] != 0): #Verifica se há colisao com a matriz.
+			self.AuxAltura = self.Altura-1
 			flagColisao = 1
-			print('contato')
 		return flagColisao #Nao houve colisao. 
 		
 
-
-	#Rotinas de teste. 
-	#Se os blocos estão corretos deverá aparecer em diagonal os retangulos. 		
-	'''
-	def _Teste_Blit_Blocos(self):
-		for i in range(self.Nblocos):
-			self.Malha.blit(self.SurfBlocos[i],(i*self.Trama[0],i*self.Trama[1]) )
-	
-	def _Teste_blit_Tetrominos(self):
-		n = len(self.SurfTetro)	#Quantidade de tetrominos em uso.
-								#Definido em _Superficies_Tetrominos(), SurfTetrominos.py
-		tetro_em_uso = self.TetroAtual%n #Permite diferente quantidades de tetrominos 
-								#self.TetroAtual definido em _pygame_basics()
-		#Verifica choque com a parede.		
-		self.Malha.blit(self.SurfTetro[tetro_em_uso][self.Rotacao%len(self._Tetros[tetro_em_uso])], (self.Posicao*self.Trama[0], 0*self.Trama[1])) 
-	'''
 
