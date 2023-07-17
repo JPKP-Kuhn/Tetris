@@ -11,6 +11,7 @@ from SurfTetrominos import*
 
 class MemoTetris(SurfScreen, SurfMalha, SurfDados, pygame_basics, Tetromino, SurfTetrominos):
 	def __init__(self):
+		self.ticks = 0
 		self._pygame_basics()
 		self._pygame_loop()
 			
@@ -36,8 +37,6 @@ class MemoTetris(SurfScreen, SurfMalha, SurfDados, pygame_basics, Tetromino, Sur
 						self.Posicao+=1		
 					if event.key==pyl.K_t:	#Somente para testes. A mudança de tetromino
 						self.TetroAtual+=1	#ocorre quando um tetromino pára de descer.
-					if event.key==pyl.K_SPACE:
-						self.Altura+=1
 					if event.key==pyl.K_m:
 						print("Tetromino ", self.TetroAtual%7, " rotacao:", self.Rotacao%7-3)
 							
@@ -47,7 +46,6 @@ class MemoTetris(SurfScreen, SurfMalha, SurfDados, pygame_basics, Tetromino, Sur
 			self.SurfDados()		#SurfDados.py 		
 			self.Screen.blit(self.Malha, self.MalhaPos)
 			self.Screen.blit(self.Dados, (10,30))
-		
 			pyg.display.update()	
 
 if __name__=="__main__": 

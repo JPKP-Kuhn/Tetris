@@ -59,6 +59,7 @@ class SurfMalha():
 		colisao =self.DetectaColisao()
 		if (colisao ==1):	#Colisao com a base da matriz. 	
 			#Atualizacao da matriz da malha. 
+			self.TetroAtual += 1
 			print(self.Posicao, self.Altura)
 			for i59 in range(4): #Atualiza a matriz da malha. Tem que fazer o blit da matriz da malha.
 				for j60 in range(4):
@@ -159,6 +160,7 @@ class SurfMalha():
 			self.AuxRotacao=self.Rotacao	
 			self.AuxPosicao = self.Posicao-1	#Força a verificacao da posicao. 		
 		if(self.MalhaMatriz[(self.AuxAltura+self.base+1)][7] != 0):
+			flagColisao = 1
 			print('contato')
 		return flagColisao #Nao houve colisao. 
 		
