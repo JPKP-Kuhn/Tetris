@@ -4,11 +4,6 @@ import pygame.locals as pyl
 import numpy as np
 import sys
 
-class Vassoura:	#Sem uso por enquanto
-	flagEsq = False
-	flatDir = False
-	flagBaixo = False
-	
 class SurfMalha():
 	#Dados estaticos
 	def SurfMalhaConstantes(self):	#Define a matriz da malha, guarda BIF

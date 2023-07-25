@@ -22,7 +22,6 @@ class pygame_basics:
 		self.Nblocos = 7	#Numero de blocos em blocos.png
 		self.Tetros()		#Cria os tetrominos, guardando-os em uma lista(matriz e superficie).
 							#Tetrominos.py
-		#self.PrintTetros()	#Impressao para teste. 
 		self.flag = True
 		self.flagVarredura = False	#Utilizado quando se inicia um tetromino para verificar colisao. 
 		self.flagTrocaTetromino = False	#flag para trocar tetromino. 

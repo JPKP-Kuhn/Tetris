@@ -56,16 +56,4 @@ class SurfTetrominos():
 								#Permite diferente quantidades de tetrominos 
 								#self.TetroAtual definido em _pygame_basics()				
 								#Definido em _Superficies_Tetrominos(), SurfTetrominos.py			
-		
-
-	def PrintTetros(self):
-		print("Quantidade de Tetros: ", len(self._Tetros))
-		print(self._Tetros[0])		
-		for i in range(len(self._Tetros)):			
-			print("Tetromino :", i)
-			for key, value in self._Tetros[i].items():
-				print("Padrão ", key)
-				print(value)
-			print("####################")	
-			
-		
+					
