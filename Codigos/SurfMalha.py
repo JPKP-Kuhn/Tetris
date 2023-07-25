@@ -24,7 +24,7 @@ class SurfMalha():
 		
 	
 	#Dados Dinamicos
-	def SurfMalha(self):		
+	def SurfMalha(self):	#Define a superficie da malha, blita os tetrominos.	
 		MalhaDim = [self.ScreenDim[0]/2, self.ScreenDim[1]*0.9]
 		borda = self.ScreenDim[1]*0.05 
 			#Borda tirada do eixo y, tem o objetivo de tirar a borda da malha. 	
@@ -48,6 +48,21 @@ class SurfMalha():
 										#_Superficies_Tetrominos() definido em SurfTetrominos.py		
 		#self._Teste_blit_Tetrominos()	#Imprime os tetrominos com e suas rotacoes. 
 		self._Blit_Tetrominos()
+		self.varreMatriz()
+
+	def linhaPreenchida(self, linha):
+		for i in range(len(linha)):
+			if linha[i]==0:
+				return False
+		return True
+	
+	def varreMatriz(self):
+		for i in range(len(self.MalhaMatriz)):
+			if self.linhaPreenchida(self.MalhaMatriz[i]):
+				self.MalhaMatriz.pop(i)
+				self.MalhaMatriz.insert(0,[0]*self.ColunasMalha)
+				print("Linha Preenchida")
+				self.ImprimeMatrizMalha()
 
 	def ImprimeMatrizMalha(self):
 		for i in range(len(self.MalhaMatriz)):
