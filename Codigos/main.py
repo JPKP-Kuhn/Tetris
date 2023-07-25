@@ -35,6 +35,8 @@ class MemoTetris(SurfScreen, SurfMalha, SurfDados, pygame_basics, Tetromino, Sur
 						self.Posicao-=1
 					if event.key==pyl.K_RIGHT:
 						self.Posicao+=1		
+					if event.key==pyl.K_SPACE:
+						self.Altura+=1
 					if event.key==pyl.K_t:	#Somente para testes. A mudança de tetromino
 						self.TetroAtual+=1	#ocorre quando um tetromino pára de descer.
 					if event.key==pyl.K_m:

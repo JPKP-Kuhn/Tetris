@@ -20,7 +20,6 @@ class SurfMalha():
 			for j in range(self.ColunasMalha):
 				linha.append(0)
 			self.MalhaMatriz.append(linha)	
-		self.MalhaMatriz[16][7]=2	
 		self.BIF = '../Imagens/malha_quadriculada.png'
 		
 	
@@ -147,15 +146,15 @@ class SurfMalha():
 			if self.DetectaColisaoBase(): 
 				flagColisao =1
 			self.AuxAltura=self.Altura
+		elif(self.MalhaMatriz[(self.AuxAltura+self.base+1)][self.Posicao] != 0): #Verifica se há colisao com a matriz.
+			self.AuxAltura = self.Altura-1
+			flagColisao = 1
 		#Verifica colisao na rotacao
 		if(self.AuxRotacao!=self.Rotacao):
 			if self.DetectaColisaoRotacao(): 
 				flagRotacao = 2			
 			self.AuxRotacao=self.Rotacao	
 			self.AuxPosicao = self.Posicao-1	#Força a verificacao da posicao.	
-		if(self.MalhaMatriz[(self.AuxAltura+self.base+1)][self.Posicao] != 0): #Verifica se há colisao com a matriz.
-			self.AuxAltura = self.Altura-1
-			flagColisao = 1
 		return flagColisao #Nao houve colisao. 
 		
 
